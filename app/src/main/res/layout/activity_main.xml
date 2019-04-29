@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainConstraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.642"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/armour_vaalregalia" />
+
+    <ImageView
+        android:id="@+id/one_socket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/three_socket"
+        app:layout_constraintTop_toTopOf="@+id/item"
+        app:srcCompat="@drawable/socket_blue" />
+
+    <ImageView
+        android:id="@+id/two_socket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/item"
+        app:layout_constraintTop_toTopOf="@+id/item"
+        app:srcCompat="@drawable/socket_green" />
+
+    <ImageView
+        android:id="@+id/three_socket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item"
+        app:layout_constraintStart_toStartOf="@+id/item"
+        app:layout_constraintTop_toTopOf="@+id/item"
+        app:srcCompat="@drawable/socket_red" />
+
+    <ImageView
+        android:id="@+id/four_socket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item"
+        app:layout_constraintEnd_toEndOf="@+id/item"
+        app:layout_constraintTop_toTopOf="@+id/item"
+        app:srcCompat="@drawable/socket_blue" />
+
+    <ImageView
+        android:id="@+id/five_socket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/item"
+        app:layout_constraintStart_toStartOf="@+id/three_socket"
+        app:srcCompat="@drawable/socket_red" />
+
+    <ImageView
+        android:id="@+id/six_socket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/item"
+        app:layout_constraintEnd_toEndOf="@+id/item"
+        app:srcCompat="@drawable/socket_blue" />
+
+    <ImageView
+        android:id="@+id/one_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/two_socket"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="@+id/one_socket"
+        app:layout_constraintTop_toTopOf="@+id/item"
+        app:srcCompat="@drawable/link_horizontal" />
+
+    <ImageView
+        android:id="@+id/two_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/six_socket"
+        app:layout_constraintEnd_toEndOf="@+id/two_socket"
+        app:layout_constraintTop_toTopOf="@+id/two_socket"
+        app:layout_constraintVertical_bias="0.645"
+        app:srcCompat="@drawable/link_vertical" />
+
+    <ImageView
+        android:id="@+id/three_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item"
+        app:layout_constraintEnd_toEndOf="@+id/four_socket"
+        app:layout_constraintStart_toStartOf="@+id/three_socket"
+        app:layout_constraintTop_toTopOf="@+id/item"
+        app:srcCompat="@drawable/link_horizontal" />
+
+    <ImageView
+        android:id="@+id/four_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/five_socket"
+        app:layout_constraintStart_toStartOf="@+id/five_socket"
+        app:srcCompat="@drawable/link_vertical" />
+
+    <ImageView
+        android:id="@+id/five_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item"
+        app:layout_constraintEnd_toEndOf="@+id/six_socket"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="@+id/five_socket"
+        app:srcCompat="@drawable/link_horizontal" />
+
+    <ImageView
+        android:id="@+id/fusing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/currency_fusing" />
+
+    <TextView
+        android:id="@+id/testView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testRelative" />
+
+    <RelativeLayout
+        android:id="@+id/testRelative"
+        android:layout_width="87dp"
+        android:layout_height="79dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/vaalReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="236dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/armour_vaalregalia" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/socket_red" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imageView2"
+            app:srcCompat="@drawable/socket_red" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
