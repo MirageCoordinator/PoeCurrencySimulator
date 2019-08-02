@@ -1,103 +1,118 @@
 package ru.dellirium.poecurrencysimulator;
 
-import android.app.Activity;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import java.util.Arrays;
 
-import java.util.ArrayList;
-import java.util.Random;
+import static ru.dellirium.poecurrencysimulator.ItemSocket.*;
+import static ru.dellirium.poecurrencysimulator.KoreanRandomUtil.linkChances;
+import static ru.dellirium.poecurrencysimulator.KoreanRandomUtil.socketChances;
 
-public class PoeItem {
+class PoeItem {
+    private int strRequirement;
+    private int dexRequirement;
+    private int intRequirement;
+    private final int CHROMATIC_VALUE = 16;
+    private final int maxNumberOfSockets;
+    private ItemSocket[] itemSockets = new ItemSocket[1];
+    private final boolean[] itemLinks = {false, false, false, false, false};
+    boolean isAlreadySixLinked;
 
-    Activity activity;
-
-    private int itemSockets;
-
-    public PoeItem (Activity activity) {
-        this.activity = activity;
-        rollSockets(6);
+    public PoeItem (int maxNumberOfSockets) {
+        this.maxNumberOfSockets = maxNumberOfSockets;
+        rollSockets();
     }
 
+    PoeItem(int maxNumberOfSockets, int strRequirement, int dexRequirement, int intRequirement) {
+        this.strRequirement = strRequirement;
+        this.dexRequirement = dexRequirement;
+        this.intRequirement = intRequirement;
+        this.maxNumberOfSockets = maxNumberOfSockets;
+        rollSockets();
+    }
 
-    public int getSockets () {
+    ItemSocket[] getItemSockets() {
         return itemSockets;
     }
 
- public void rollSockets(int maxNumberOfSockets) {
-     Random rand = new Random();
-     int n = rand.nextInt(maxNumberOfSockets + 1);
-     itemSockets = n;
+    int getMaxNumberOfSockets() {
+        return maxNumberOfSockets;
+    }
 
+    boolean[] getItemLinks() {
+        return itemLinks;
+    }
 
-
-     ArrayList<ItemSocket> sockets =  new ArrayList<>();
-
-     sockets.add(new ItemSocket(R.id.vaalReg));
-     sockets.add(new ItemSocket(R.id.vaalReg));
-     sockets.add(new ItemSocket(R.id.vaalReg));
-     sockets.add(new ItemSocket(R.id.vaalReg));
-     sockets.add(new ItemSocket(R.id.vaalReg));
-     sockets.add(new ItemSocket(R.id.vaalReg));
-
-     for (int i = 0; sockets.size() > i; i++) {
-         ItemSocket aSocket = sockets.get(i);
-
-         aSocket.getMSocketId();
-     }
-
-
+    boolean rollSockets() {
+        if (itemSockets.length != maxNumberOfSockets) {
+            int n = KoreanRandomUtil.getRandom(socketChances);
+            itemSockets = new ItemSocket[n];
+            rollColors();
+            rollLinks();
+            return true;
+        } else {
+            return false;
+        }
  }
 
-
-    public class ItemSocket {
-        ImageView mSocket;
-        int mSocketId;
-
-        public ItemSocket(int socketID) {
-
-            mSocket = new ImageView(activity);
-
-            Random randomizeColor = new Random();
-            int sColor = randomizeColor.nextInt(3);
-
-            switch (sColor) {
+    void rollColors() {
+        int[] colorList = {calculateChromaticValue(strRequirement),
+                            calculateChromaticValue(dexRequirement),
+                            calculateChromaticValue(intRequirement)};
+        for (int i = 0; i < itemSockets.length; i++) {
+            int color = KoreanRandomUtil.getRandom(colorList);
+            switch (color) {
                 case 0:
-                    mSocket.setImageResource(R.drawable.socket_blue);
+                    itemSockets[i] = new ItemSocket(RED);
                     break;
                 case 1:
-                    mSocket.setImageResource(R.drawable.socket_red);
+                    itemSockets[i] = new ItemSocket(GREEN);
                     break;
                 case 2:
-                    mSocket.setImageResource(R.drawable.socket_green);
+                    itemSockets[i] = new ItemSocket(BLUE);
                     break;
             }
-
-            mSocketId = socketID;
-
-            socketCreate();
-
         }
-
-        public void socketCreate() {
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                    RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT);
-            params.addRule(RelativeLayout.RIGHT_OF, mSocketId);
-
-            mSocket.setLayoutParams(params);
-            mSocket.generateViewId();
-
-            RelativeLayout item = activity.findViewById(R.id.vaalReg);
-            item.addView(mSocket);
-        }
-
-        public int getMSocketId() {
-            return mSocketId;
-        }
-
-
-
-
     }
+
+    private int calculateChromaticValue (int mainAttribute) {
+        double doubleMainAttribute = (double) mainAttribute;
+        return (int) ((doubleMainAttribute + CHROMATIC_VALUE) / (strRequirement + dexRequirement + intRequirement + 3 * CHROMATIC_VALUE) * 1000000);
+    }
+
+    boolean rollLinks() {
+        if (isAlreadySixLinked) {
+            return false;
+        }
+        int i = 0;
+        for (; i < itemSockets.length - 1; i++) {
+            int[] linksChancesSmallerCopy = Arrays.copyOf(linkChances, itemSockets.length - i);
+            int linksRoll = KoreanRandomUtil.getRandom(linksChancesSmallerCopy);
+
+            if (sixLinkFlag(linksRoll)) return true;
+
+            for (int j = 0; j < linksRoll; j++) {
+                itemLinks[i] = true;
+                i++;
+            }
+            if(i < itemLinks.length) {
+                itemLinks[i] = false;
+            }
+        }
+        for (; i < itemLinks.length - 1; i++) {
+            itemLinks[i] = false;
+        }
+        return true;
+    }
+
+    private boolean sixLinkFlag(int linksRoll) {
+        if (linksRoll == itemLinks.length) {
+            for (int i = 0; i < itemLinks.length; i++) {
+                itemLinks[i] = true;
+            }
+            isAlreadySixLinked = true;
+            return true;
+        }
+        return false;
+    }
+
 
 }

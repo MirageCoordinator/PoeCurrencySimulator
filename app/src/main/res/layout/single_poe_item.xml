@@ -1,58 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
 
     <ImageView
         android:id="@+id/vaal_regalia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:contentDescription="@string/item_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
         app:srcCompat="@drawable/armour_vaalregalia" />
 
-    <RelativeLayout
+    <GridLayout
+        android:id="@+id/sockets_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="0dp">
+        android:columnCount="2"
+        app:layout_constraintBottom_toBottomOf="@+id/vaal_regalia"
+        app:layout_constraintEnd_toEndOf="@+id/vaal_regalia"
+        app:layout_constraintStart_toStartOf="@+id/vaal_regalia"
+        app:layout_constraintTop_toTopOf="@+id/vaal_regalia">
 
         <ImageView
-            android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            app:srcCompat="@drawable/socket_blue" />
+            android:contentDescription="@string/item_socket"
+            android:visibility="gone"
+            app:srcCompat="@drawable/socket_red"
+            tools:visibility="visible" />
 
         <ImageView
-            android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/imageView5"
-            android:layout_toRightOf="@+id/imageView5"
-            app:srcCompat="@drawable/socket_blue" />
+            android:contentDescription="@string/item_socket"
+            android:visibility="gone"
+            app:srcCompat="@drawable/socket_red"
+            tools:visibility="visible" />
 
         <ImageView
-            android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView5"
-            app:srcCompat="@drawable/socket_green" />
+            android:contentDescription="@string/item_socket"
+            android:visibility="gone"
+            app:srcCompat="@drawable/socket_green"
+            tools:visibility="visible" />
 
         <ImageView
-            android:id="@+id/imageView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView5"
-            android:layout_toRightOf="@+id/imageView5"
-            app:srcCompat="@drawable/socket_red" />
+            android:contentDescription="@string/item_socket"
+            android:visibility="gone"
+            app:srcCompat="@drawable/socket_blue"
+            tools:visibility="visible" />
 
-    </RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/item_socket"
+            android:visibility="gone"
+            app:srcCompat="@drawable/socket_blue"
+            tools:visibility="visible" />
 
-</RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/item_socket"
+            android:visibility="gone"
+            app:srcCompat="@drawable/socket_blue"
+            tools:visibility="visible" />
+    </GridLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/sockets_list"
+        app:layout_constraintStart_toStartOf="@+id/sockets_list"
+        app:layout_constraintTop_toTopOf="@+id/sockets_list"
+        app:srcCompat="@drawable/link_horizontal"
+        android:tag="link"
+        android:contentDescription="@string/item_link" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="4dp"
+        android:rotation="90"
+        android:tag="link"
+        app:layout_constraintEnd_toEndOf="@+id/sockets_list"
+        app:layout_constraintTop_toTopOf="@+id/sockets_list"
+        app:srcCompat="@drawable/link_horizontal"
+        android:contentDescription="@string/item_link" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="@+id/sockets_list"
+        app:layout_constraintStart_toStartOf="@+id/sockets_list"
+        app:layout_constraintTop_toTopOf="@+id/sockets_list"
+        app:srcCompat="@drawable/link_horizontal"
+        android:tag="link"
+        android:contentDescription="@string/item_link" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="75dp"
+        app:layout_constraintStart_toStartOf="@+id/sockets_list"
+        app:layout_constraintTop_toTopOf="@+id/sockets_list"
+        app:srcCompat="@drawable/link_vertical"
+        android:tag="link"
+        android:contentDescription="@string/item_link" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="111dp"
+        app:layout_constraintEnd_toEndOf="@+id/sockets_list"
+        app:layout_constraintStart_toStartOf="@+id/sockets_list"
+        app:layout_constraintTop_toTopOf="@+id/sockets_list"
+        app:srcCompat="@drawable/link_horizontal"
+        android:tag="link"
+        android:contentDescription="@string/item_link" />
+
+
+</merge>

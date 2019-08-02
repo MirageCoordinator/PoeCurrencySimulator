@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PoE Currency Simulator</string>
+    <string name="item_socket">item socket</string>
+    <string name="item_image">item image</string>
+    <string name="item_link">item link</string>
+    <string name="fusing_image">fusing image</string>
+    <string name="used_sockets">sockets used: %d</string>
+    <string name="used_fusings">fusings used: %d</string>
+    <string name="chromatic_image">chromatic image</string>
+    <string name="jeweller_image">jeweller image</string>
 </resources>
