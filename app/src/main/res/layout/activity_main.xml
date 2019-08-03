@@ -1,72 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/mainConstraint"
+    <FrameLayout
+        android:id="@+id/main_fragment"
+        android:name="ru.dellirium.weatherapp.FragmentMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#CCCCCC"
-        tools:context=".MainActivity">
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp" />
 
-        <ImageView
-            android:id="@+id/fusing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="@string/fusing_image"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/jeweller"
-            app:srcCompat="@drawable/currency_fusing" />
-
-        <ImageView
-            android:id="@+id/jeweller"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/fusing"
-            app:layout_constraintEnd_toStartOf="@+id/fusing"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/chromatic"
-            app:srcCompat="@drawable/currency_jeweller"
-            android:contentDescription="@string/jeweller_image" />
-
-        <ImageView
-            android:id="@+id/chromatic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/jeweller"
-            app:layout_constraintEnd_toStartOf="@+id/jeweller"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/currency_chromatic"
-            android:contentDescription="@string/chromatic_image" />
-
-        <TextView
-            android:id="@+id/used_sockets"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text=""
-            app:layout_constraintBottom_toTopOf="@+id/jeweller"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Sockets used: 0" />
-
-        <TextView
-            android:id="@+id/used_fusings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text=""
-            app:layout_constraintBottom_toTopOf="@+id/used_sockets"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Fusings used: 0" />
-
-    </android.support.constraint.ConstraintLayout>
-</merge>
+</LinearLayout>
