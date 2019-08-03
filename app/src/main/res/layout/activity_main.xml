@@ -5,7 +5,6 @@
 
     <FrameLayout
         android:id="@+id/main_fragment"
-        android:name="ru.dellirium.weatherapp.FragmentMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="0dp"
