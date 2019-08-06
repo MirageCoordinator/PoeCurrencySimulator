@@ -54,7 +54,8 @@
         app:layout_constraintBottom_toTopOf="@+id/jeweller"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Sockets used: 0" />
+        tools:text="Sockets used: 0"
+        android:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/used_fusings"
@@ -65,6 +66,7 @@
         app:layout_constraintBottom_toTopOf="@+id/used_sockets"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Fusings used: 0" />
+        tools:text="Fusings used: 0"
+        android:textColor="@color/colorPrimaryDark" />
 
 </android.support.constraint.ConstraintLayout>

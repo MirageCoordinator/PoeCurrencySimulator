@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">PoE Currency Simulator</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="item_socket">item socket</string>
     <string name="item_image">item image</string>
     <string name="item_link">item link</string>
@@ -8,4 +10,8 @@
     <string name="used_fusings">fusings used: %d</string>
     <string name="chromatic_image">chromatic image</string>
     <string name="jeweller_image">jeweller image</string>
+    <string name="six_link">Six-link</string>
+    <string name="flasks">Flasks</string>
+    <string name="info">Info</string>
+    <string name="about">About</string>
 </resources>
