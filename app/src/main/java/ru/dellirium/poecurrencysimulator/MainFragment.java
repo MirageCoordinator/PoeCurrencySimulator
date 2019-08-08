@@ -5,10 +5,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +25,7 @@ public class MainFragment extends Fragment {
     private ImageView jewellerImage;
     private ImageView fusingImage;
     private ImageView chromaticImage;
+    private ImageButton toolbar;
     private int counterSockets = 0;
     private int counterFusings = 0;
     private View thisView;
@@ -40,6 +44,7 @@ public class MainFragment extends Fragment {
         jewellerImage = view.findViewById(R.id.jeweller);
         fusingImage = view.findViewById(R.id.fusing);
         chromaticImage = view.findViewById(R.id.chromatic);
+        toolbar = view.findViewById(R.id.toolbar);
         return view;
     }
 
@@ -85,12 +90,19 @@ public class MainFragment extends Fragment {
                         vaalRegalia.rollColors();
                         drawColors(vaalRegalia);
                         break;
+                    case R.id.toolbar:
+                        if (getActivity() != null) {
+                            DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
+                            drawerLayout.openDrawer(Gravity.START);
+                        }
+                        break;
                 }
             }
         };
         jewellerImage.setOnClickListener(currencyClick);
         fusingImage.setOnClickListener(currencyClick);
         chromaticImage.setOnClickListener(currencyClick);
+        toolbar.setOnClickListener(currencyClick);
         //endregion
     }
 
