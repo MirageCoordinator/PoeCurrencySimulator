@@ -58,7 +58,9 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        vaalRegalia = new PoeItem(6,0,0,190);
+        vaalRegalia = (new PoeItemBuilder(6))
+                .setRequirements(new int[]{0, 0, 190})
+                .build();
         initialItemDraw(vaalRegalia);
 
         //region Clicks handler

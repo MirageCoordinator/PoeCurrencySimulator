@@ -2,31 +2,25 @@ package ru.dellirium.poecurrencysimulator;
 
 import java.util.Arrays;
 
-import static ru.dellirium.poecurrencysimulator.ItemSocket.*;
+import static ru.dellirium.poecurrencysimulator.ItemSocket.BLUE;
+import static ru.dellirium.poecurrencysimulator.ItemSocket.GREEN;
+import static ru.dellirium.poecurrencysimulator.ItemSocket.RED;
 import static ru.dellirium.poecurrencysimulator.KoreanRandomUtil.linkChances;
 import static ru.dellirium.poecurrencysimulator.KoreanRandomUtil.socketChances;
 
 class PoeItem {
-    private int strRequirement;
-    private int dexRequirement;
-    private int intRequirement;
+    private int strRequirement = 0;
+    private int dexRequirement = 0;
+    private int intRequirement = 0;
+    private String[] tags;
     private final int CHROMATIC_VALUE = 16;
     private final int maxNumberOfSockets;
     private ItemSocket[] itemSockets = new ItemSocket[1];
     private final boolean[] itemLinks = {false, false, false, false, false};
     boolean isAlreadySixLinked;
 
-    public PoeItem (int maxNumberOfSockets) {
+    PoeItem(int maxNumberOfSockets) {
         this.maxNumberOfSockets = maxNumberOfSockets;
-        rollSockets();
-    }
-
-    PoeItem(int maxNumberOfSockets, int strRequirement, int dexRequirement, int intRequirement) {
-        this.strRequirement = strRequirement;
-        this.dexRequirement = dexRequirement;
-        this.intRequirement = intRequirement;
-        this.maxNumberOfSockets = maxNumberOfSockets;
-        rollSockets();
     }
 
     ItemSocket[] getItemSockets() {
@@ -114,5 +108,19 @@ class PoeItem {
         return false;
     }
 
+    void setStrRequirement(int strRequirement) {
+        this.strRequirement = strRequirement;
+    }
 
+    void setDexRequirement(int dexRequirement) {
+        this.dexRequirement = dexRequirement;
+    }
+
+    void setIntRequirement(int intRequirement) {
+        this.intRequirement = intRequirement;
+    }
+
+    void setTags(String[] tags) {
+        this.tags = tags;
+    }
 }
