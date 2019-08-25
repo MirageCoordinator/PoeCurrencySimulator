@@ -25,6 +25,6 @@ class ItemSocket {
     static final int ABYSSAL = R.drawable.socket_abyssal;
     @IntDef({RED, GREEN, BLUE, WHITE, ABYSSAL})
     @Retention(RetentionPolicy.SOURCE)
-    @interface SocketColor {}
+    private @interface SocketColor {}
 }
 
