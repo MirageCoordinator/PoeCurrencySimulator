@@ -5,7 +5,6 @@ class PoeItemBuilder {
 
     PoeItemBuilder(int MaxNumberOfSockets) {
         item = new PoeItem(MaxNumberOfSockets);
-        item.rollSockets();
     }
 
     PoeItemBuilder setRequirements(int[] requirements) {

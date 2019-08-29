@@ -61,6 +61,8 @@ public class MainFragment extends Fragment {
         vaalRegalia = (new PoeItemBuilder(6))
                 .setRequirements(new int[]{0, 0, 190})
                 .build();
+        final DefaultSocketRolls socketRoller = new DefaultSocketRolls(vaalRegalia);
+        socketRoller.rollSockets();
         initialItemDraw(vaalRegalia);
 
         //region Clicks handler
@@ -69,7 +71,7 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.jeweller:
-                        vaalRegalia.rollSockets();
+                        socketRoller.rollSockets();
                         drawSockets(vaalRegalia);
                         if (vaalRegalia.getItemSockets().length != vaalRegalia.getMaxNumberOfSockets()) {
                             counterSockets++;
@@ -79,7 +81,7 @@ public class MainFragment extends Fragment {
                         }
                         break;
                     case R.id.fusing:
-                        vaalRegalia.rollLinks();
+                        socketRoller.rollLinks();
                         drawLinks(vaalRegalia);
                         if (!vaalRegalia.isAlreadySixLinked) {
                             counterFusings++;
@@ -89,7 +91,7 @@ public class MainFragment extends Fragment {
                         }
                         break;
                     case R.id.chromatic:
-                        vaalRegalia.rollColors();
+                        socketRoller.rollColors();
                         drawColors(vaalRegalia);
                         break;
                     case R.id.toolbar:
