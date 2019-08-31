@@ -19,11 +19,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer);
 
-        Fragment fragment = MainFragment.getInstance();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.main_fragment, fragment)
-                .commit();
+        if (savedInstanceState == null) {
+            Fragment fragment = MainFragment.getInstance();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .add(R.id.main_fragment, fragment)
+                    .commit();
+        }
     }
 
     @Override
