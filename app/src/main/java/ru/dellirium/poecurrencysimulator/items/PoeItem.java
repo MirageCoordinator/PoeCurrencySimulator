@@ -1,6 +1,6 @@
-package ru.dellirium.poecurrencysimulator;
+package ru.dellirium.poecurrencysimulator.items;
 
-class PoeItem {
+public class PoeItem {
     private int strRequirement = 0;
     private int dexRequirement = 0;
     private int intRequirement = 0;
@@ -9,14 +9,14 @@ class PoeItem {
     private final int maxNumberOfSockets;
     private ItemSocket[] itemSockets = new ItemSocket[1];
     private final boolean[] itemLinks = {false, false, false, false, false};
-    boolean isAlreadySixLinked;
+    public boolean isAlreadySixLinked;
 
     PoeItem(int maxNumberOfSockets) {
         this.maxNumberOfSockets = maxNumberOfSockets;
     }
 
     //region Getters and Setters
-    ItemSocket[] getItemSockets() {
+    public ItemSocket[] getItemSockets() {
         return itemSockets;
     }
 
@@ -24,11 +24,11 @@ class PoeItem {
         this.itemSockets = itemSockets;
     }
 
-    int getMaxNumberOfSockets() {
+    public int getMaxNumberOfSockets() {
         return maxNumberOfSockets;
     }
 
-    boolean[] getItemLinks() {
+    public boolean[] getItemLinks() {
         return itemLinks;
     }
 
@@ -60,7 +60,7 @@ class PoeItem {
         this.tags = tags;
     }
 
-    boolean isAlreadySixLinked() {
+    public boolean isAlreadySixLinked() {
         return isAlreadySixLinked;
     }
 

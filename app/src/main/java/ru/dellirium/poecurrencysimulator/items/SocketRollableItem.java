@@ -1,4 +1,4 @@
-package ru.dellirium.poecurrencysimulator;
+package ru.dellirium.poecurrencysimulator.items;
 
 interface SocketRollableItem {
 

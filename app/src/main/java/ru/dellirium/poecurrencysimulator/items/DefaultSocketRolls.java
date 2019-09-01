@@ -1,18 +1,18 @@
-package ru.dellirium.poecurrencysimulator;
+package ru.dellirium.poecurrencysimulator.items;
 
 import java.util.Arrays;
 
-import static ru.dellirium.poecurrencysimulator.ItemSocket.BLUE;
-import static ru.dellirium.poecurrencysimulator.ItemSocket.GREEN;
-import static ru.dellirium.poecurrencysimulator.ItemSocket.RED;
-import static ru.dellirium.poecurrencysimulator.KoreanRandomUtil.linkChances;
-import static ru.dellirium.poecurrencysimulator.KoreanRandomUtil.socketChances;
+import static ru.dellirium.poecurrencysimulator.items.ItemSocket.BLUE;
+import static ru.dellirium.poecurrencysimulator.items.ItemSocket.GREEN;
+import static ru.dellirium.poecurrencysimulator.items.ItemSocket.RED;
+import static ru.dellirium.poecurrencysimulator.items.KoreanRandomUtil.linkChances;
+import static ru.dellirium.poecurrencysimulator.items.KoreanRandomUtil.socketChances;
 
 public class DefaultSocketRolls implements SocketRollableItem {
     private final int CHROMATIC_VALUE = 16;
     private final PoeItem item;
 
-    DefaultSocketRolls(PoeItem item) {
+    public DefaultSocketRolls(PoeItem item) {
         this.item = item;
     }
 

@@ -4,6 +4,10 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
+import ru.dellirium.poecurrencysimulator.items.DefaultSocketRolls;
+import ru.dellirium.poecurrencysimulator.items.PoeItem;
+import ru.dellirium.poecurrencysimulator.items.PoeItemBuilder;
+
 public class MainViewModel extends ViewModel {
     private PoeItem vaalRegalia;
     private DefaultSocketRolls socketRoller;
@@ -12,7 +16,7 @@ public class MainViewModel extends ViewModel {
 
     private MutableLiveData<PoeItem> item;
 
-    LiveData<PoeItem> getItem() {
+    public LiveData<PoeItem> getItem() {
         if (item == null) {
             item = new MutableLiveData<>();
             createItem();
@@ -28,14 +32,14 @@ public class MainViewModel extends ViewModel {
         rollSockets();
     }
 
-    void rollSockets() {
+    public void rollSockets() {
         if (socketRoller.rollSockets()) {
             counterSockets++;
         }
         item.setValue(vaalRegalia);
     }
 
-    void rollLinks() {
+    public void rollLinks() {
         socketRoller.rollLinks();
         if (!vaalRegalia.isAlreadySixLinked()) {
             counterFusings++;
@@ -43,20 +47,20 @@ public class MainViewModel extends ViewModel {
         item.setValue(vaalRegalia);
     }
 
-    void rollColors() {
+    public void rollColors() {
         socketRoller.rollColors();
         item.setValue(vaalRegalia);
     }
 
-    PoeItem getVaalRegalia() {
+    public PoeItem getVaalRegalia() {
         return vaalRegalia;
     }
 
-    int getCounterFusings() {
+    public int getCounterFusings() {
         return counterFusings;
     }
 
-    int getCounterSockets() {
+    public int getCounterSockets() {
         return counterSockets;
     }
 }

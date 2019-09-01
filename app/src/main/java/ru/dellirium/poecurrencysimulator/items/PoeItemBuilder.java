@@ -1,25 +1,25 @@
-package ru.dellirium.poecurrencysimulator;
+package ru.dellirium.poecurrencysimulator.items;
 
-class PoeItemBuilder {
+public class PoeItemBuilder {
     private final PoeItem item;
 
-    PoeItemBuilder(int MaxNumberOfSockets) {
+    public PoeItemBuilder(int MaxNumberOfSockets) {
         item = new PoeItem(MaxNumberOfSockets);
     }
 
-    PoeItemBuilder setRequirements(int[] requirements) {
+    public PoeItemBuilder setRequirements(int[] requirements) {
         item.setStrRequirement(requirements[0]);
         item.setDexRequirement(requirements[1]);
         item.setIntRequirement(requirements[2]);
         return this;
     }
 
-    PoeItemBuilder setTags(String[] tags) {
+    public PoeItemBuilder setTags(String[] tags) {
         item.setTags(tags);
         return this;
     }
 
-    PoeItem build() {
+    public PoeItem build() {
         return item;
     }
 }

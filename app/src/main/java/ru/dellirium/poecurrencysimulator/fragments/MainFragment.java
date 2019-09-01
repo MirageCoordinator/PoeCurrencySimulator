@@ -1,4 +1,4 @@
-package ru.dellirium.poecurrencysimulator;
+package ru.dellirium.poecurrencysimulator.fragments;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -16,6 +16,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import ru.dellirium.poecurrencysimulator.MainViewModel;
+import ru.dellirium.poecurrencysimulator.R;
+import ru.dellirium.poecurrencysimulator.items.PoeItem;
 
 public class MainFragment extends Fragment {
     private View[] linksList;

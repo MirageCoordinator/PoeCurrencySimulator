@@ -1,16 +1,18 @@
-package ru.dellirium.poecurrencysimulator;
+package ru.dellirium.poecurrencysimulator.items;
 
 import android.support.annotation.IntDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-class ItemSocket {
+import ru.dellirium.poecurrencysimulator.R;
+
+public class ItemSocket {
     @SocketColor
     private final int color;
 
     @SocketColor
-    int getColor() {
+    public int getColor() {
         return color;
     }
 
