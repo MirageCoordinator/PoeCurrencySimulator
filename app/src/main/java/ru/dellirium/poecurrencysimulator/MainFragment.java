@@ -1,5 +1,6 @@
 package ru.dellirium.poecurrencysimulator;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainFragment extends Fragment {
-    private PoeItem vaalRegalia;
     private View[] linksList;
     private ConstraintLayout mainLayout;
     private TextView usedSockets;
@@ -26,8 +26,7 @@ public class MainFragment extends Fragment {
     private ImageView fusingImage;
     private ImageView chromaticImage;
     private ImageButton toolbar;
-    private int counterSockets = 0;
-    private int counterFusings = 0;
+    private MainViewModel model;
     private View thisView;
 
     public static Fragment getInstance() {
@@ -58,49 +57,35 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        vaalRegalia = (new PoeItemBuilder(6))
-                .setRequirements(new int[]{0, 0, 190})
-                .build();
-        final DefaultSocketRolls socketRoller = new DefaultSocketRolls(vaalRegalia);
-        socketRoller.rollSockets();
-        initialItemDraw(vaalRegalia);
+        model = ViewModelProviders.of(this).get(MainViewModel.class);
+        model.getItem().observe(this, this::updateUi);
+        initialItemDraw(model.getVaalRegalia());
 
         //region Clicks handler
-        View.OnClickListener currencyClick = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.jeweller:
-                        socketRoller.rollSockets();
-                        drawSockets(vaalRegalia);
-                        if (vaalRegalia.getItemSockets().length != vaalRegalia.getMaxNumberOfSockets()) {
-                            counterSockets++;
-                            if (getActivity() != null) {
-                                usedSockets.setText(getActivity().getString(R.string.used_sockets, counterSockets));
-                            }
-                        }
-                        break;
-                    case R.id.fusing:
-                        socketRoller.rollLinks();
-                        drawLinks(vaalRegalia);
-                        if (!vaalRegalia.isAlreadySixLinked) {
-                            counterFusings++;
-                            if (getActivity() != null) {
-                                usedFusings.setText(getActivity().getString(R.string.used_fusings, counterFusings));
-                            }
-                        }
-                        break;
-                    case R.id.chromatic:
-                        socketRoller.rollColors();
-                        drawColors(vaalRegalia);
-                        break;
-                    case R.id.toolbar:
-                        if (getActivity() != null) {
-                            DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
-                            drawerLayout.openDrawer(Gravity.START);
-                        }
-                        break;
-                }
+        View.OnClickListener currencyClick = v -> {
+            switch (v.getId()) {
+                case R.id.jeweller:
+                    model.rollSockets();
+                    if (model.getVaalRegalia().getMaxNumberOfSockets() == model.getVaalRegalia().getItemSockets().length) {
+                        Toast.makeText(getActivity(), "Item has maximum number of sockets", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case R.id.fusing:
+                    model.rollLinks();
+                    if (model.getVaalRegalia().isAlreadySixLinked) {
+                        Toast.makeText(getActivity(), "Item already has six linked sockets", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case R.id.chromatic:
+                    model.rollColors();
+
+                    break;
+                case R.id.toolbar:
+                    if (getActivity() != null) {
+                        DrawerLayout drawerLayout = getActivity().findViewById(R.id.drawer_layout);
+                        drawerLayout.openDrawer(Gravity.START);
+                    }
+                    break;
             }
         };
         jewellerImage.setOnClickListener(currencyClick);
@@ -111,6 +96,14 @@ public class MainFragment extends Fragment {
     }
 
     //region Item drawing methods
+    private void updateUi(PoeItem poeItem) {
+        drawSockets(poeItem);
+        if (getActivity() != null) {
+            usedFusings.setText(getActivity().getString(R.string.used_fusings, model.getCounterFusings()));
+            usedSockets.setText(getActivity().getString(R.string.used_sockets, model.getCounterSockets()));
+        }
+    }
+
     private void initialItemDraw(PoeItem item) {
         itemInflate();
         fillLinksList();
@@ -163,9 +156,6 @@ public class MainFragment extends Fragment {
         }
         drawLinks(item);
         drawColors(item);
-        if (item.getMaxNumberOfSockets() == item.getItemSockets().length) {
-            Toast.makeText(getActivity(), "Item has maximum number of sockets", Toast.LENGTH_SHORT).show();
-        }
     }
 
 
@@ -184,9 +174,6 @@ public class MainFragment extends Fragment {
             } else {
                 linksList[i].setVisibility(View.GONE);
             }
-        }
-        if (item.isAlreadySixLinked) {
-            Toast.makeText(getActivity(), "Item already has six linked sockets", Toast.LENGTH_SHORT).show();
         }
     }
     //endregion

@@ -10,7 +10,7 @@ import static ru.dellirium.poecurrencysimulator.KoreanRandomUtil.socketChances;
 
 public class DefaultSocketRolls implements SocketRollableItem {
     private final int CHROMATIC_VALUE = 16;
-    private PoeItem item;
+    private final PoeItem item;
 
     DefaultSocketRolls(PoeItem item) {
         this.item = item;
