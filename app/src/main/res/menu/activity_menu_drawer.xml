@@ -10,8 +10,7 @@
             android:checked="true"/>
         <item
             android:id="@+id/nav_flasks"
-            android:title="@string/flasks"
-            android:checked="true"/>
+            android:title="@string/flasks" />
     </group>
 
     <item android:title="@string/info">
