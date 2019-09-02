@@ -18,4 +18,97 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_menu_black_24dp" />
+
+    <ImageView
+        android:id="@+id/transmutation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="64dp"
+        android:contentDescription="@string/transmutation_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/scouring"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/currency_transmutation" />
+
+    <ImageView
+        android:id="@+id/scouring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:contentDescription="@string/scouring_image"
+        app:layout_constraintBottom_toBottomOf="@+id/transmutation"
+        app:layout_constraintEnd_toStartOf="@+id/augmentation"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/transmutation"
+        app:srcCompat="@drawable/currency_scouring" />
+
+    <ImageView
+        android:id="@+id/augmentation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:contentDescription="@string/augmentation_image"
+        app:layout_constraintBottom_toBottomOf="@+id/scouring"
+        app:layout_constraintEnd_toStartOf="@+id/alteration"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/scouring"
+        app:srcCompat="@drawable/currency_augmentation" />
+
+    <ImageView
+        android:id="@+id/alteration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/alteration_image"
+        app:layout_constraintBottom_toBottomOf="@+id/augmentation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/augmentation"
+        app:srcCompat="@drawable/currency_alteration" />
+
+    <ImageView
+        android:id="@+id/quicksilver_flask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/scouring"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/flask_quicksilver" />
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Item Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:text="Ample Quicksilver flask" />
+
+    <TextView
+        android:id="@+id/implicits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Implicit modifier"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="@+id/item_name"
+        app:layout_constraintStart_toStartOf="@+id/item_name"
+        app:layout_constraintTop_toBottomOf="@+id/item_name"
+        tools:text="40% increased Movement Speed" />
+
+    <TextView
+        android:id="@+id/explicits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explicit modifier"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="@+id/implicits"
+        app:layout_constraintStart_toStartOf="@+id/implicits"
+        app:layout_constraintTop_toBottomOf="@+id/implicits"
+        tools:text="+(17) to Maximum Charges" />
 </android.support.constraint.ConstraintLayout>

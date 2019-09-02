@@ -15,4 +15,8 @@
     <string name="info">Info</string>
     <string name="about">About</string>
     <string name="toolbar">toolbar</string>
+    <string name="transmutation_image">transmutation image</string>
+    <string name="scouring_image">scouring image</string>
+    <string name="augmentation_image">augmentation image</string>
+    <string name="alteration_image">alteration image</string>
 </resources>
