@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import ru.dellirium.poecurrencysimulator.fragments.FlaskFragment;
 import ru.dellirium.poecurrencysimulator.fragments.MainFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,6 +34,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment fragment;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        int id = menuItem.getItemId();
+        switch (id) {
+            case R.id.nav_flasks:
+                fragment = FlaskFragment.getInstance();
+                break;
+            case R.id.nav_links:
+            default:
+                fragment = MainFragment.getInstance();
+        }
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.main_fragment, fragment)
+                .commit();
+
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
