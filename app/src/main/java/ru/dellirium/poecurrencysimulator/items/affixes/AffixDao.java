@@ -14,6 +14,12 @@ public interface AffixDao {
     @Query("SELECT * FROM affix")
     List<Affix> getAllMods();
 
+    @Query("SELECT * FROM affix WHERE modId = :id")
+    Affix getByModId(String id);
+
+    @Query("DELETE FROM affix")
+    void nukeTable();
+
     @Insert
     void insert(Affix affix);
 

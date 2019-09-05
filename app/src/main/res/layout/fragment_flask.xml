@@ -110,5 +110,6 @@
         app:layout_constraintEnd_toEndOf="@+id/implicits"
         app:layout_constraintStart_toStartOf="@+id/implicits"
         app:layout_constraintTop_toBottomOf="@+id/implicits"
+        android:gravity="center_horizontal"
         tools:text="+(17) to Maximum Charges" />
 </android.support.constraint.ConstraintLayout>
