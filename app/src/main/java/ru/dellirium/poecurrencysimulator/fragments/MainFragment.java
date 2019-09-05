@@ -65,6 +65,7 @@ public class MainFragment extends Fragment {
         model.getItem().observe(this, this::updateUi);
         initialItemDraw(model.getVaalRegalia());
 
+
         //region Clicks handler
         View.OnClickListener currencyClick = v -> {
             switch (v.getId()) {
