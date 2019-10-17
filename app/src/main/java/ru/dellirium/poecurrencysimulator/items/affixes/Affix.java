@@ -22,9 +22,6 @@ public class Affix {
     public int statMinValue;
     public int statMaxValue;
 
-    public Affix() {
-    }
-
     public Affix(String domain, String modId, String name, String group, String modType,
                  String generationType, int reqLevel, String effect, String tag, String statId,
                  int weight, int statMinValue, int statMaxValue) {

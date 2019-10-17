@@ -1,6 +1,6 @@
 package ru.dellirium.poecurrencysimulator;
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 import ru.dellirium.poecurrencysimulator.items.affixes.Affix;
 import ru.dellirium.poecurrencysimulator.items.affixes.AffixDB;
